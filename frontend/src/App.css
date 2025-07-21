@@ -1,0 +1,437 @@
+:root {
+    --primary-color: #f4f6f8;
+    /* --secondary-color: #; */
+    --text-color: black;
+    --description-box-color: #B9C2CA;
+    --start-button-color: #1F1F1F;
+    --statistics-box-color: #D0D7DC;
+    --footer-panel: #8B99A7;
+    
+}
+
+/*Normalization*/
+*,
+::before,
+::after {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+}
+
+/*smooooooth scrolling*/
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        scroll-behavior: smooth;
+    }
+}
+
+/* .app {
+  background-color: var(--primary-color);
+  height:100vh;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+} */
+
+.app-container {
+  background-color: var(--primary-color);
+  height:100vh;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  /* animation: page-fade-in 0.4s ease-out; */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  width: 100%;
+  height:100vh;
+  animation: page-fade-in 0.4s ease-out;
+}
+
+/* AI's */
+/* .app-container {
+  background-color: var(--primary-color);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+} */
+
+/* .content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; */
+  /* The following properties are not needed here for the layout */
+  /* background-color: var(--primary-color); */
+  /* height:100vh; */
+  /* width:100%; */
+/* } */
+
+.description-section {
+  /* flex: 1; */
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  font-size: 1em;
+  /* border: 2px solid black; */
+  /* padding: 0px 40px 0px 40px; */
+  /* margin:10px 2px; */
+  margin: 0.5rem 0.5rem;
+  width: fit-content;
+  height: 30vh;
+  background-color: var(--description-box-color);
+  border-radius: 15px;
+  align-self: center;
+  padding: 10px;
+  /* margin: 10px; */
+}
+
+.desc-title {
+  font-size: 2em;
+  text-align: center;
+  /* font-weight: bold; */
+  /* margin-bottom: 10px; */
+  margin: 0.5rem 0.5rem;
+}
+
+.description-content {
+  font-size: 1.2em;
+  line-height: 1.5;
+  text-align: justify;
+  /* margin-top: 10px; */
+}
+
+.gameplay-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* border: 2px solid blue; */
+  background-color: var(--primary-color);
+  margin-top: auto;
+  color:var(--text-color)
+}
+
+.start-game-button {
+  color:white; /*affects button's text color*/
+  background-color: var(--start-button-color); 
+  border: none; /* removes default border */
+  /* padding: 10px 20px;  */
+  padding:1rem 2rem;
+  font-size: 1.2em; /*increases font size*/
+  border-radius: 5px; /*rounds the corners of the button*/
+  cursor: pointer; /*changes cursor to pointer when hovering over the button*/
+  /* transition: background-color 0.3s ease; adds a smooth transition effect when hovering over the button */
+  /* margin-right: 2rem; */
+  margin:0rem;
+}
+
+/* .gameplay-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 50%;
+  height: 100%;
+  border: 2px solid red;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  margin-top: auto;
+} */
+
+.gameplay-box {
+  /* Make sure the box can contain the scrolling list */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  flex-grow: 1;
+  min-height: 0;
+  /* border: 2px solid red; */
+}
+
+.score-display {
+  padding: 10px;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.round-history-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* align-content: center; */
+  /* justify-content: space-evenly; */
+  flex-grow: 1; /* Allows the container to fill available space */
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding: 10px 20px;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  /* Add this line */
+  min-height: 0; 
+  /* border: 2px solid green; */
+}
+
+.history-placeholder {
+  color: #888;
+  text-align: center;
+  margin-top: 20px;
+  /* border: 2px solid green; */
+}
+
+.round-item {
+  display: flex;
+  justify-content: space-between;
+  margin:0em 20em 0em 20em;
+  align-items: center;
+  padding: 8px 5px;
+  font-size: 1.1em;
+  border-bottom: 1px solid #333;
+  /* border: 2px solid orange; */
+  animation: fadeIn 0.5s ease-in-out; /* Fade-in animation for new items */
+}
+
+/* .result-icon {
+  font-weight: bold;
+  font-size: 1.2em;
+} */
+
+.result-icon.win { fill: #28a745; }
+.result-icon.lose { fill: #dc3545; }
+.result-icon.tie { fill: #6c757d; }
+
+.result-icon-win, .result-icon-lose, .result-icon-tie {
+  text-align: center; 
+  /* border: 2px solid purple;  */
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.moves-display {
+  display: none;
+}
+
+/* Remove old move display styles if they exist */
+/* .moves-display {
+  display: none;
+} */
+
+/* .Game-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid green;
+  background-color: orange;
+  /* margin-top: auto; 
+} */
+
+.Game-controls {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  /* gap: 2rem; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  width: 100%;
+  height: 22vh;
+  /* border: 2px solid green; */
+  background-color: var(--primary-color);
+  /* margin-top: auto; */
+}
+
+.statistics-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 50%;
+  height: 100%;
+  margin-bottom: 1rem;
+  /* border: 2px solid blue; */
+  border-radius: 20px;
+  background-color: var(--statistics-box-color);
+  color: var(--text-color);
+  margin-top: auto;
+}
+
+.win-lose-title {
+  padding-bottom: 0.5em;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.moves-title{
+  padding-bottom: 0.5em;
+  text-align: center;
+  font-size: 1em;
+}
+
+.stats-summary {
+  /* border: 2px solid green; */
+  margin-bottom: 2em;
+  text-align: center;
+  /* line-height: 1.7; */
+  /* font-size: 1em; */
+}
+
+.stats-moves {
+  /* align-items: center; */
+  text-align: center;
+  /* font-size: 1em; */
+  /* border: 2px solid orange; */
+}
+
+.controls-instructions-text {
+  color: black;
+  font-size: 1em;
+  width: 50%;
+  height: auto;
+  grid-column: 1;
+  grid-row: 3;
+  /* border: 2px solid black; */
+  /* margin-right: 20px; */
+}
+
+.icon-definitions {
+  grid-column: 3;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Adds space between the items */
+  padding: 10px;
+  color: var(--text-color);
+  /* border: 2px solid orange; */
+  width: fit-content;
+}
+
+.icon-def-win, .icon-def-lose, .icon-def-tie {
+  /* border:2px solid red; */
+  /* margin-left: 1rem; */
+  margin-top:0.6rem;
+}
+
+.Restart-button-sec {
+  grid-column: 3;
+  grid-row: 3;
+  /* display: flex;
+  align-items: center; */
+}
+
+.arrow-keys {
+  grid-column: 2;
+  grid-row: 3; /* Spans from row 1 to row 3 */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  /* justify-items: end; */
+  /* align-content: end; */
+  /* align-items: end; */
+  /* justify-content: end; */
+  width: fit-content;
+  height: fit-content;
+  /* border: 2px solid cyan; */
+  /* background-color: cyan; */
+  /* padding: 1rem; */
+}
+
+.key-display-up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.key-display-left {
+  grid-column: 1;
+  grid-row: 2;
+  /* justify-items: end; */
+  /* align-content: end; */
+  /* align-items: end; */
+  /* justify-content: end; */
+}
+
+.key-display-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.key-display-up.glow, .key-display-left.glow, .key-display-right.glow {
+  /* box-shadow: 0 0 20px #00ff00; */
+  transform: scale(1.1);
+}
+
+/* .key-display-right.glow {
+  box-shadow: 0 0 20px #00ff00;
+  transform: scale(1.1);
+} */
+
+/* Not really neccesary, for now, but can be used later */
+/* .left-arrow-button {
+  background-color: transparent; Makes the button background transparent
+  border: none; Removes the default button border
+  cursor: pointer; Changes the cursor to pointer when hovering over the button
+  padding: 0; Removes padding
+} */
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  width: 100%;
+  height: 10vh;
+  border: 2px solid rgb(80, 80, 80);
+  background-color: var(--footer-panel);
+  margin-top: auto;
+  min-height: 10vh;
+}
+
+.foot-note {
+  color: var(--text-color);
+  font-size: 1em;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  /* padding: 10px; */
+}
+
+
+
+
