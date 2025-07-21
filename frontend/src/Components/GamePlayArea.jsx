@@ -57,10 +57,17 @@ export default function GamePlayArea({onShowStats}) {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/predict', {
-        method: 'POST', //POST because, we are sending data to the server
-        headers: {'Content-Type': 'application/json'},//inform server that we are sending JSON data
-        body: JSON.stringify({ move: move }), // convert the data to JSON string
+      // Remove before live deployment
+      // const response = await fetch('http://127.0.0.1:5000/predict', {
+      //   method: 'POST', //POST because, we are sending data to the server
+      //   headers: {'Content-Type': 'application/json'},//inform server that we are sending JSON data
+      //   body: JSON.stringify({ move: move }), // convert the data to JSON string
+      // });
+
+      const response = await fetch('/predict', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ move }),
       });
 
       // check if the response is ok
@@ -96,7 +103,9 @@ export default function GamePlayArea({onShowStats}) {
   //Function responsible for ending the game and fetching stats
   const handleRestart = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/reset', {method: 'POST'});
+      // Remove before live deployment
+      // const response = await fetch('http://127.0.0.1:5000/reset', {method: 'POST'});
+      const response = await fetch('/reset', {method: 'POST'});
       if (!response.ok) {
         throw new Error (`Server error: ${response.status}`);
       }
